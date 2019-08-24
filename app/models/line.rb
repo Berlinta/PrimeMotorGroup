@@ -1,4 +1,4 @@
-class Type < ApplicationRecord
+class Line < ApplicationRecord
 
   has_many :cars
 

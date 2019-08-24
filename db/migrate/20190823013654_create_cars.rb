@@ -4,8 +4,8 @@ class CreateCars < ActiveRecord::Migration[5.2]
       t.string :name
       t.text :description
       t.string :drive
-      t.string :type
-      t.integer :type_id
+      t.string :make
+      t.integer :line_id
       t.integer :user_id
 
       t.timestamps

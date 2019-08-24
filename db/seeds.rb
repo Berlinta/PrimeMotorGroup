@@ -6,10 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-line1 = Line.create(name: "Truck")
-line2 = Line.create(name: "Limo")
+line1 = Line.create(name: "SUV")
+line2 = Line.create(name: "Sedan")
 line3 = Line.create(name: "Sport")
-line4 = Line.create(name: "Muscle")
+line4 = Line.create(name: "Coupe")
 
 # car1 = Car.create(name: "Charger", description: "Touch Screen TV", drive: "FWC", model: "Avenger")
 

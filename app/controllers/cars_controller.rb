@@ -45,9 +45,9 @@ class CarsController < ApplicationController
   @car = Car.new
  end
 
- def car_line
-  @cars = Car.car_line
-  render 'car_line'
+ def car_make
+  @cars = Car.car_make
+  render 'car_make'
  end
 
  def reviewed
@@ -58,7 +58,7 @@ class CarsController < ApplicationController
  private
 
 def car_params
-  params.require(:car).permit(:name, :description, :drive, :line, :line_id)
+  params.require(:car).permit(:name, :description, :drive, :make, :line_id)
 end
 
 def find_car

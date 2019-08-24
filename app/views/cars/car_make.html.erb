@@ -2,8 +2,8 @@
   <div class="col-md-4">
   </div>
   <div class="col-md-8">
-    <%= params[:line] %>
+    <%= params[:make] %>
     <% @cars.each do |car| %>
-      <h4><%= link_to car.line, car_path(car) %>
+      <h4><%= link_to car.make, car_path(car) %>
           <% end %></h4>
   </div>

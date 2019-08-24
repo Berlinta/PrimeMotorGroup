@@ -13,7 +13,7 @@ Rails.application.routes.draw do
  
   resources :cars do #Nested
     collection do
-      get :car_type
+      get :car_make
         get :reviewed
     end
   resources :reviews,  :except => [:index]

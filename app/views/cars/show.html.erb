@@ -1,0 +1,41 @@
+<div class="row">
+
+	   <div class="col-md-4">
+
+      <h1>Cars Show</h1>
+      </div>
+
+	    <div class="col-md-8">
+
+          <h2><%= @car.name %></h2>
+          <h3><%= @car.line %></h3>
+          <h4>Drive: <%= @car.drive %></h4>
+          <h4>Line: <%= @car.line.name %></h4>
+          <p><%= @car.description %></p>
+    
+      </div>
+
+      <div class="links btn-group">
+
+          <% if @car.user_id == current_user.id %>
+
+          <%= link_to "Edit", edit_car_path, class: "btn btn-custom" %>
+          <%= link_to "Delete", car_path(@car), class: "btn btn-custom", method: :delete, data: {confirm: "Are you sure?"} %>
+          <% end %>
+      </div>
+
+
+<div class="row">
+
+	<div class="col-md-4">
+
+		<div class="reviews">
+
+        <h2>Reviews</h2>
+        <p><%= render @car.reviews %></p>
+    </div>
+
+          <%= link_to "Create Review", new_car_review_path(@car), class: "btn-custom2" %>
+
+    </div>
+  </div>

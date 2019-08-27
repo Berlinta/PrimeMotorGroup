@@ -11,9 +11,11 @@
 <br>
 <%= f.label :make %>
 <%= f.text_field :make %>
-
 <br>
-<%= f.label :line_id, "Type" %>
+<%= f.label :line_id %>
+<%= f.text_field :line_id %>
+<br>
+<%= f.label :line_id, "line" %>
 <%= f.collection_select :line_id, Line.all, :id, :name, prompt: true %>
 <br>
 

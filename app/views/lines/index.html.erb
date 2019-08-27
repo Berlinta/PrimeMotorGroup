@@ -8,8 +8,7 @@
       <h1> There is no car of that line. </h1>
     <% else %>
     <% @cars.each do |car| %>
-     
-      <h4><%= link_to car.name, car.make, car_path(car) %></h4>
+      <p><%= car.name %> </p>
 
 
          

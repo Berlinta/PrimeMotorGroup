@@ -4,9 +4,11 @@ class CarsController < ApplicationController
   before_action :redirect_if_car_nonexistent!, only: [:show]
 
  def index
+    #byebug
     if params[:line].blank?
     @cars = Car.all.order("created_at DESC")
   else
+    #byebug
     @line_id = Line.find_by(name: params[:line]).id
     @cars = Car.where(:line_id => @line_id).order("created_at DESC")
   end

@@ -12,50 +12,56 @@
   <body>
     <% if logged_in? %>
 
-    <nav class="navbar navbar-default", style="background-color: #e3f2fd;">
+    <nav class="navbar">
       <div class="container">
         <div class="navbar-header">
 
-          <%= link_to "Prime Dealership", cars_path, class: "navbar-brand"%>
+          <%= link_to "Main Page", cars_path, class: "navbar-brand"%>
         </div>
 
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to "Log Out", logout_path, method: :delete %></li>
-          </ul>
 
           <ul class="nav navbar-nav navbar-right">
 
               <li class="dropdown show">
                   <a href="#" role="button" id="dropdownMenuLink"
-                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Lines<span class="caret"</span></a>
+                      data-toggle="dropdown">Lines<span class="caret"</span></a>
                 <ul class="dropdown-menu" role"menu">
 
                   <% Line.all.each do |line| %>
                     <li><%= link_to line.name, cars_path(line: line.name), class: "link"%></li>
-                        <% end %>
+                        <% end %> -->
 
                     </li>
                 </ul>
                 <li><%= link_to "Add Car", new_car_path %></li>
                 <li><%= link_to "Makes", car_make_cars_path %></li>
                 <li><%= link_to "Reviewed", reviewed_cars_path %></li>
+                <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+
+
                    <% end %>
 
           <div class="container"
           <%= yield %>
-         </div>
+         </div>  -->
 
-    <!-- Footer -->
+
+
+
+<!--
+
     <footer class="page-footer font-small blue fixed-bottom">
         <% if current_user.present? %>
+
         <p class='text-center'>Logged as:<%= current_user.email %></p>
           <% end%>
-  <!-- Copyright -->
+
         <div class="footer-copyright text-center py-3">© 2019          Copyright:Prime Motor Group
         </div>
-<!-- Copyright -->
 
     </footer>
 
   </body>
 </html>
+
+-->

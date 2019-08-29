@@ -37,7 +37,7 @@ before_action :find_review, only: [ :edit, :update, :destroy]
   end
  end
 
- private
+ private #Private Methods
 
   def review_params
     params.require(:review).permit(:comment)

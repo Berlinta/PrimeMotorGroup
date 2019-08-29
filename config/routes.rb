@@ -13,14 +13,14 @@ Rails.application.routes.draw do
 
   resources :users
   resources :lines
+  
  
-  resources :cars do #Nested
+  resources :cars do #Nested Route
     collection do
       get :car_make
         get :reviewed
     end
   resources :reviews,  :except => [:index]
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
  end
 end

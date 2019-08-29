@@ -4,5 +4,5 @@
     
     <%= params[:make] %>
       <% @cars.each do |car| %>
-        <h4><%= car.name %> <%= link_to car.make, car_path(car) %> </h4>
-          <% end %>
+        <h4><%= car.name %> <%= link_to car.make, car_path(car) %></h4>
+     <% end %>

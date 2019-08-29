@@ -41,27 +41,27 @@ class CarsController < ApplicationController
   redirect_to cars_path
  end
 
- def show
+ def show #Show
  end
 
- def edit
+ def edit #Edit
  end
 
- def new
+ def new #Create New Car
   @car = Car.new
  end
 
- def car_make
+ def car_make #Scope
   @cars = Car.car_make
   render 'car_make'
  end
 
- def reviewed
+ def reviewed #Scope
   @cars = Car.reviewed
   render action: :index
  end
 
- private
+ private #Private Methods
 
  def car_params
   params.require(:car).permit(:name, :description, :drive, :make, :line_id)

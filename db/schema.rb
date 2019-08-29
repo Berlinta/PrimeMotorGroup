@@ -17,8 +17,8 @@ ActiveRecord::Schema.define(version: 2019_08_23_013933) do
     t.text "description"
     t.string "drive"
     t.string "make"
-    t.integer "line_id" #dont need line ID
-    t.integer "user_id" #dont need user ID
+    t.integer "line_id"
+    t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

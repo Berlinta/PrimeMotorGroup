@@ -1,13 +1,13 @@
 class SessionsController < ApplicationController
 
- def home
+ def home #Root View Page
  end
 
- def new
+ def new #Login View Page
     @user = User.new
  end
 
- def create #login
+ def create #User Login
   @user = User.find_by(email: params[:user][:email])
    if @user && @user.authenticate(params[:user][:password])
   session[:user_id] = @user.id
@@ -18,12 +18,12 @@ class SessionsController < ApplicationController
   end
  end
 
- def destroy
+ def destroy #Logout
    session.clear 
    redirect_to '/'
  end
 
- def fbcreate
+ def fbcreate #Facebook Omniauth
   @user = User.find_or_create_by(uid: auth['uid']) do |u|
    u.email = auth['info']['email']
    u.password = auth['uid']
@@ -32,7 +32,7 @@ class SessionsController < ApplicationController
    redirect_to cars_path
  end
 
- private
+ private #Private Methods
 
   def auth
     request.env['omniauth.auth']

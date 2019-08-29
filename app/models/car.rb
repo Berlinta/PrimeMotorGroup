@@ -5,9 +5,9 @@ class Car < ApplicationRecord
   has_many :users, through: :reviews
 
   validates :name, :description, :drive, :make, presence: true
-  #validates presence: true, on: :create
+
 
   scope :car_make, -> { order('make') }
-  scope :reviewed, -> { joins(:reviews).distinct("reviews.car_id") }
+  scope :reviewed, -> { order(:reviews).distinct("reviews.car_id") } #order cars by ther ID using reviewd method from cars controller
 
 end

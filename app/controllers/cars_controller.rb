@@ -3,7 +3,7 @@ class CarsController < ApplicationController
   before_action :authenticate_user!, only: [:edit, :update, :destroy]
   before_action :redirect_if_car_nonexistent!, only: [:show]
 
- def index
+ def index  #GET method all cars database   
     #byebug
     if params[:line].blank?
     @cars = Car.all.order("created_at DESC")
@@ -14,7 +14,7 @@ class CarsController < ApplicationController
   end
  end
 
- def create
+ def create # POST method for processing form data
   @car = Car.new(car_params)
     @car.user_id = current_user.id
       if @car.save
@@ -26,7 +26,7 @@ class CarsController < ApplicationController
     end
  end
 
- def update
+ def update # PUT method for updating in database
   if @car.update(car_params)
     flash[:success] = "#{@car.name} was updated."
     redirect_to car_path(@car)
@@ -35,7 +35,7 @@ class CarsController < ApplicationController
   end
  end
 
- def destroy
+ def destroy # DELETE method for deleting
   @car.destroy
   flash[:success] = "#{@car.name} your car was removed."
   redirect_to cars_path
@@ -47,7 +47,7 @@ class CarsController < ApplicationController
  def edit #Edit
  end
 
- def new #Create New Car
+ def new #Create New Obj Car
   @car = Car.new
  end
 
@@ -63,7 +63,7 @@ class CarsController < ApplicationController
 
  private #Private Methods
 
- def car_params
+ def car_params #strong parameters for the validation of params
   params.require(:car).permit(:name, :description, :drive, :make, :line_id)
  end
 

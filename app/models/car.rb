@@ -8,6 +8,6 @@ class Car < ApplicationRecord
 
 
   scope :car_make, -> { order('make') }
-  scope :reviewed, -> { order(:reviews).distinct("reviews.car_id") } #order cars by ther ID using reviewd method from cars controller
+  scope :reviewed, -> { joins(:reviews).distinct("reviews.car_id") } #order cars by ther ID using reviewd method from cars controller
 
 end

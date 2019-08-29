@@ -1,41 +1,24 @@
-<div class="row">
-
-	   <div class="col-md-4">
-
+<div class="col-md-6 col-md-offset-3">
       <h1>Vehicle Description</h1>
-      </div>
 
-	    <div class="col-md-8">
+ 
 
           <h3>Name: <%= @car.name %></h3>
           <h3>Model: <%= @car.make %></h3>
           <h4>Drive: <%= @car.drive %></h4>
-          <h4>Description: <%= @car.description %></h4>
-          
-    
-      </div>
+          <h4>Description: <%= @car.description %></h4>          
 
-      <div class="links btn-group">
+      
 
-          <% if @car.user_id == current_user.id %>
+        <% if @car.user_id == current_user.id %>
+          <%= link_to "Edit", edit_car_path%>
+          <%= link_to "Delete", car_path(@car), method: :delete %>
+        <% end %>
 
-          <%= link_to "Edit", edit_car_path, class: "btn btn-custom" %>
-          <%= link_to "Delete", car_path(@car), class: "btn btn-custom", method: :delete, data: {confirm: "Are you sure?"} %>
-          <% end %>
-      </div>
-
-
-<div class="row">
-
-	<div class="col-md-4">
-
-		<div class="reviews">
-
-        <h2>Reviews</h2>
+        <h4>Reviews</h4>
         <p><%= render @car.reviews %></p>
-    </div>
+ 
 
-          <%= link_to "Create Review", new_car_review_path(@car), class: "btn-custom2" %>
+        <%= link_to "Add a New Review", new_car_review_path(@car)%>
 
-    </div>
   </div>

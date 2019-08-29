@@ -23,6 +23,7 @@ gem 'thin'
 gem 'dotenv-rails'
 gem 'pry'
 gem 'bootstrap', '~> 4.0.0'
+gem 'jquery-rails'
 
 
 # Use CoffeeScript for .coffee assets and views

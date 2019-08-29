@@ -1,16 +1,8 @@
-<div class="review">
+<p> <%= review.comment %> </p>
 
-  <p class="review-comment"><%= review.comment %></p>
-
-    <% if logged_in? %>
-
-      <% if review.user_id == current_user.id %>
-
-        <div class="links btn-group">
-          <%= link_to "Edit", edit_car_review_path(review.car, review), class: "btn btn-custom" %>
-          <%= link_to "Delete", car_review_path(review.car, review),class: "btn btn-custom", method: :delete, data: {confirm: "Are you sure?"} %>
-      </div>
-
+  <% if logged_in? %>
+    <% if review.user_id == current_user.id %>
+        <%= link_to "Edit", edit_car_review_path(review.car, review) %>
+        <%= link_to "Delete", car_review_path(review.car, review), method: :delete %>
     <% end %>
  <% end %>
-</div>

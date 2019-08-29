@@ -9,7 +9,10 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy'
 
-   resources :users
+  get '/auth/facebook/callback' =>  'sessions#fbcreate' #Omniauth
+
+  resources :users
+  resources :lines
  
   resources :cars do #Nested
     collection do

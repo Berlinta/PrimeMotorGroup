@@ -4,14 +4,11 @@
 
 </div>
 
-    <% if @cars.count == 0 %>
-      <h1> There is no car of that line. </h1>
-    <% else %>
+  <% if @cars.count == 0 %>
+    <h1> There is no car of that line. </h1>
+   <% else %>
     <% @cars.each do |car| %>
-      <p><%= car.name %> </p>
-
-
-         
-    <% end %>
+     <p><%= car.name %> </p>
+  <% end %>
 
 <% end %>

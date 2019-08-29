@@ -6,62 +6,49 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
+    <%= render "layouts/nav" %>
     <% if logged_in? %>
 
-    <nav class="navbar">
-      <div class="container">
-        <div class="navbar-header">
+  <div class="dropdown">
+    <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select Car Make
+      <span class="caret"></span>
+    </button>
 
-          <%= link_to "Main Page", cars_path, class: "navbar-brand"%>
-        </div>
+    <ul class="dropdown-menu" aria-labelledby="dLabel">
+      <% Line.all.each do |line| %>
+        <li><%= link_to line.name, cars_path(line: line.name), class: "link"%></li>
+      <% end %>
+    </ul>
+  </div>
 
+        <li><%= link_to "Add Your Car", new_car_path %></li>
+        <li><%= link_to "All Car Makes", car_make_cars_path %></li>
+        <li><%= link_to "Reviewed Cars", reviewed_cars_path %></li>
+        <li><%= link_to "Log Out", logout_path, method: :delete %></li>
+      <% end %>
 
-          <ul class="nav navbar-nav navbar-right">
+<!-- Bootsrap way of deploying flashes -->
+  <div class="container"> 
+    <% flash.each do |key, value| %>
+     <div class="<%= flash_class(key) %>">
+      <%= value %>
+    </div>
+  <% end %>
 
-              <li class="dropdown show">
-                  <a href="#" role="button" id="dropdownMenuLink"
-                      data-toggle="dropdown">Lines<span class="caret"</span></a>
-                <ul class="dropdown-menu" role"menu">
-
-                  <% Line.all.each do |line| %>
-                    <li><%= link_to line.name, cars_path(line: line.name), class: "link"%></li>
-                        <% end %> -->
-
-                    </li>
-                </ul>
-                <li><%= link_to "Add Car", new_car_path %></li>
-                <li><%= link_to "Makes", car_make_cars_path %></li>
-                <li><%= link_to "Reviewed", reviewed_cars_path %></li>
-                <li><%= link_to "Log Out", logout_path, method: :delete %></li>
-
-
-                   <% end %>
-
-          <div class="container"
-          <%= yield %>
-         </div>  -->
-
-
-
-
-<!--
+  <div class="container">
+    <%= yield %> 
+  </div>
 
     <footer class="page-footer font-small blue fixed-bottom">
-        <% if current_user.present? %>
-
-        <p class='text-center'>Logged as:<%= current_user.email %></p>
-          <% end%>
-
-        <div class="footer-copyright text-center py-3">© 2019          Copyright:Prime Motor Group
-        </div>
+      <% if current_user.present? %>
+        <p> class='text-center'>Logged in as:<%= current_user.email %> </p>
+      <% end%>
 
     </footer>
 
   </body>
 </html>
-
--->

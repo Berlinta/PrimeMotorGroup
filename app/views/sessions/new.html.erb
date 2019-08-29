@@ -1,18 +1,16 @@
 <div class="columns is-centered landing">
   <div class="column" align="center">
 
-<h1>Log In</h1>
+  <h1>Log In</h1>
 
-<%= form_for @user, url: '/login'  do |f| %>
+  <%= form_for @user, url: '/login'  do |f| %>
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.submit "Log In", class:"btn btn-secondary" %>
+  <%= link_to "Go Back", '/', class:"btn btn-secondary" %>
+  <% end %>
 
-<%= f.label :email %>
-<%= f.email_field :email %>
-<%= f.label :password %>
-<%= f.password_field :password %>
-
-<%= f.submit "Log In", class:"btn btn-secondary" %>
-
-<% end %>
-<%= link_to "Go Back", '/' %>
-</div>
+  </div>
 </div>

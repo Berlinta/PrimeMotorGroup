@@ -1,9 +1,8 @@
-<div class="row">
-  <div class="col-md-4">
-  </div>
-  <div class="col-md-8">
+<div class="col-md-6 col-md-offset-3">
+
+<h1>All Vehicles</h1>
+    
     <%= params[:make] %>
-    <% @cars.each do |car| %>
-      <h4><%= link_to car.make, car_path(car) %>
-          <% end %></h4>
-  </div>
+      <% @cars.each do |car| %>
+        <h4><%= car.name %> <%= link_to car.make, car_path(car) %> </h4>
+          <% end %>

@@ -18,14 +18,17 @@ class CarsController < ApplicationController
   @car = Car.new(car_params)
     @car.user_id = current_user.id
       if @car.save
+      flash[:success] = "#{@car.name} your car was added."
       redirect_to car_path(@car)
     else
+      flash[:error] = "#{@car.errors.full_messages.to_sentence}."
       render :new
     end
  end
 
  def update
   if @car.update(car_params)
+    flash[:success] = "#{@car.name} was updated."
     redirect_to car_path(@car)
   else
     render 'edit'
@@ -34,6 +37,7 @@ class CarsController < ApplicationController
 
  def destroy
   @car.destroy
+  flash[:success] = "#{@car.name} your car was removed."
   redirect_to cars_path
  end
 
@@ -59,25 +63,25 @@ class CarsController < ApplicationController
 
  private
 
-def car_params
+ def car_params
   params.require(:car).permit(:name, :description, :drive, :make, :line_id)
-end
+ end
 
-def find_car
+ def find_car
   @car = Car.find_by(id: params[:id])
-end
+ end
 
-def redirect_if_car_nonexistent!
-    if @car.nil?
-      flash[:message] = 'Car Does Not Exist!'
-      redirect_to cars_path
-    end
+ def redirect_if_car_nonexistent!
+  if @car.nil?
+    flash[:message] = 'Car Does Not Exist!'
+    redirect_to cars_path
   end
+ end
 
-def authenticate_user!
+ def authenticate_user!
   if @car.user_id != current_user.id
     redirect_to cars_path
   end
-end
+ end
 
 end

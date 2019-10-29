@@ -22,7 +22,7 @@ gem 'omniauth-facebook'
 gem 'thin'
 gem 'dotenv-rails'
 gem 'pry'
-gem 'bootstrap', '~> 4.0.0'
+gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 
 
